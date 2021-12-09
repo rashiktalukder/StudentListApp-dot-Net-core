@@ -1,0 +1,52 @@
+﻿@page
+@model StudentListApp.Pages.StudentList.EditStdInfoModel
+
+
+<br />
+<h2 class="text-info">Edit Student Info</h2>
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <input type="hidden" asp-for="studentEdit.Id" />
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+        <div class="col-3">
+            <label asp-for="studentEdit.Name"></label>
+        </div>
+        <div class="col-6">
+            <input asp-for="studentEdit.Name" class="form-control" />
+        </div>
+        <span asp-validation-for="studentEdit.Name" class="text-danger"></span>
+        </div>
+           
+        <div class="form-group row">
+        <div class="col-3">
+            <label asp-for="studentEdit.Batch"></label>
+        </div>
+        <div class="col-6">
+            <input asp-for="studentEdit.Batch" class="form-control" />
+        </div>
+        <span asp-validation-for="studentEdit.Batch" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+        <div class="col-3">
+            <label asp-for="studentEdit.Email"></label>
+        </div>
+        <div class="col-6">
+            <input asp-for="studentEdit.Email" class="form-control" />
+        </div>
+        <span asp-validation-for="studentEdit.Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class=col-3>
+                <input type="submit" value="Update" class="btn btn-primary form-control" />
+            </div>
+            @*<div class="col-3">
+                <a asp-page="IndexStudentList" class="btn btn-success form-control">View List</a>
+            </div>*@
+        </div>
+    </form>
+</div>

@@ -1,0 +1,61 @@
+﻿@page
+@model StudentListApp.Pages.StudentList.IndexModel
+
+<br />
+
+<div class= "container row padding-0 margin-0">
+
+    <div class="col-10">
+        <h2 class="text-info">Students List</h2>
+    </div>
+    <div class="col-2">
+        <a asp-page="CreateNewStd" class="btn btn-info form-control text-white">Insert Students</a>
+    </div>
+
+    <div class="col-12 border p-5 mt-5">
+        <form method="post">
+            @if(Model.Students.Count()>0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Students.FirstOrDefault().Name"></label>
+                        </th>
+                         <th>
+                            <label asp-for="Students.FirstOrDefault().Batch"></label>
+                        </th>
+                         <th>
+                            <label asp-for="Students.FirstOrDefault().Email"></label>
+                        </th>
+                    </tr>
+
+                    @foreach(var item in Model.Students)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m=>item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m=>item.Batch)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m=>item.Email)
+                            </td>
+
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure?')" class="btn btn-danger small">Delete</button>
+                            <a asp-page="EditStdInfo" asp-route-id="@item.Id" class="btn btn-success sm">Edit</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            }
+            else
+            {
+                <p>No boooks Available</p>
+            }
+        </form>
+    </div>
+
+</div> 
